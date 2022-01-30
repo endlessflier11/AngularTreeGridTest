@@ -1,0 +1,33 @@
+<div class="app-container">
+  <h2 class="title">Tree Grid</h2>
+  <ejs-treegrid
+    id="treegrid"
+    #treegrid
+    [dataSource]="data"
+    [enableVirtualization]="false"
+    height="400"
+    childMapping="childs"
+    [allowPaging]='true'
+    [allowResizing]=true
+    [treeColumnIndex]="1"
+    [contextMenuItems]="contextMenuItems"
+    (contextMenuOpen)="contextMenuOpen($event)"
+    (contextMenuClick)="contextMenuClick($event)"
+    [editSettings]="editSettings"
+    (actionComplete)="actionComplete($event)"
+    allowSelection="true"
+    [enableHover]="false"
+  >
+    <!-- [allowPaging]='true' pageSettings='pager' -->
+    <e-columns>
+      <e-column
+        *ngFor="let column of columnsSettings"
+        [visible]="column.visible"
+        field="{{ column.field }}"
+        headerText="{{ column.label }}"
+        textAlign="{{ column.alignment }}"
+        [width]="column.minWidth"
+      ></e-column>
+    </e-columns>
+  </ejs-treegrid>
+</div>

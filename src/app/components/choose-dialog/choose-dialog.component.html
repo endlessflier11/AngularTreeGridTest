@@ -1,0 +1,34 @@
+<div #container class='root-container'>
+    <ejs-dialog id='chooser-dialog' [animationSettings]='animationSettings' header='Choose Column Settings'
+        [showCloseIcon]='true' width='350px'>
+        <ng-template #content>
+            <div class="e-dlg-content">
+                <div class="e-editedrow">
+                    <form class="e-gridform" novalidate="">
+                        <table class="e-table" cellspacing="6px">
+                            <tbody>
+                                <ng-container *ngFor="let column of data">
+                                    <tr class="e-row" *ngIf="isValidate(column)">
+                                        <td class="e-rowcell">
+                                            <div class="e-checkbox-div">
+                                                <label class="e-check-label">{{column.label}}</label>
+                                                <input *ngIf=column.visible class="e-edit-checkbox" type="checkbox"
+                                                    name="textWrap" checked (change)="eventCheck($event, column.field)">
+                                                <input *ngIf=!column.visible class="e-edit-checkbox" type="checkbox"
+                                                    name="textWrap" (change)="eventCheck($event, column.field)">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="e-footer-content">
+                <button type="button" class="e-control e-btn e-lib e-primary e-flat" (click)="onSubmit()">Set</button>
+                <button type="button" class="e-control e-btn e-lib e-flat" (click)="hideDialog()">Cancel</button>
+            </div>
+        </ng-template>
+    </ejs-dialog>
+</div>

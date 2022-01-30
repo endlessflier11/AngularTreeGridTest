@@ -1,0 +1,18 @@
+<div #container class="root-container">
+    <ejs-dialog id="chooser-dialog" [animationSettings]="animationSettings" header="Delete Column"
+        [showCloseIcon]="true" width="350px">
+        <ng-template #content>
+            <div class="e-dlg-content">
+                <span class="e-dlg-description">Are you sure you want to permanently delete `{{ data }}` column ?</span>
+            </div>
+            <div class="e-footer-content">
+                <button type="button" class="e-control e-btn e-lib e-primary e-flat" (click)="onSubmit()">
+                    Yes
+                </button>
+                <button type="button" class="e-control e-btn e-lib e-flat" (click)="hideDialog()">
+                    No
+                </button>
+            </div>
+        </ng-template>
+    </ejs-dialog>
+</div>

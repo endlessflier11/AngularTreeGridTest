@@ -1,0 +1,188 @@
+<div #container class="root-container">
+  <ejs-dialog
+    id='{data.draft ? "new-dialog" : "edit-dialog"}'
+    [animationSettings]="animationSettings"
+    header="{{ data.draft ? 'New Column Settings' : 'Edit Column Settings' }}"
+    [showCloseIcon]="true"
+    width="350px"
+  >
+    <ng-template #content>
+      <div class="e-dlg-content">
+        <div class="e-editedrow">
+          <form class="e-gridform" novalidate [formGroup]="editorForm">
+            <table class="e-table" cellspacing="6px">
+              <tbody>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-edit-textbox"
+                        type="text"
+                        value="{{ columnSettingData.label }}"
+                        name="field"
+                        role="textbox"
+                        required
+                        (input)="onChangeEdit($event, 'label')"
+                      />
+                      <label *ngIf="columnSettingData.label.trim().length === 0" htmlFor="" class="e-edit-error">Required</label>
+                      <label class="e-edit-label {{columnSettingData.label.trim().length === 0 && 'e-edit-error'}}">Column's Name</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <select
+                        formControlName="dataTypeControl"
+                        class="e-select"
+                      >
+                        <option *ngFor="let type of dataTypes" [ngValue]="type">
+                          {{ type }}
+                        </option>
+                      </select>
+                      <label class="e-edit-label">Data Type</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-edit-textbox"
+                        type="{{ columnSettingData.type }}"
+                        value="{{ columnSettingData.defaultValue }}"
+                        name="defaultValue"
+                        role="textbox"
+                        required
+                        (input)="onChangeEdit($event, 'defaultValue')"
+                      />
+                      <label class="e-edit-label">Default value</label>
+                    </div>
+                  </td>
+                </tr>                
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-edit-textbox"
+                        type="number"
+                        value="{{ columnSettingData.minWidth }}"
+                        name="minColWidth"
+                        role="textbox"
+                        min="40"
+                        max="300"
+                        required
+                        (input)="onChangeEdit($event, 'minWidth')"
+                      />
+                      <label *ngIf="columnSettingData.minWidth > 400" htmlFor="" class="e-edit-error">It should be less than 400</label>
+                      <label class="e-edit-label {{columnSettingData.minWidth > 400 && 'e-edit-error'}}">Minimum Column Width</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-edit-textbox"
+                        type="number"
+                        value="{{ columnSettingData.fontSize }}"
+                        name="fontSize"
+                        min="8"
+                        max="20"
+                        required
+                        (input)="onChangeEdit($event, 'fontSize')"
+                      />
+                      <label class="e-edit-label">Font size</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-color-box"
+                        type="color"
+                        value="columnSettingData.fontColor"
+                        name="fontColor"
+                        (input)="onChangeEdit($event, 'fontColor')"
+                      />
+                      <label class="e-edit-label">Font color</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <input
+                        class="e-color-box"
+                        type="color"
+                        value="{{ columnSettingData.bgColor }}"
+                        name="backgroundColor"
+                        (input)="onChangeEdit($event, 'bgColor')"
+                      />
+                      <label class="e-edit-label">Background color</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-edit-div">
+                      <select
+                        formControlName="alignmentControl"
+                        class="e-select"
+                      >
+                        <option
+                          *ngFor="let alignment of alignments"
+                          [ngValue]="alignment"
+                        >
+                          {{ alignment }}
+                        </option>
+                      </select>
+                      <label class="e-edit-label">Alignment</label>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="e-row">
+                  <td class="e-rowcell">
+                    <div class="e-checkbox-div">
+                      <label class="e-check-label">Text wrap</label>
+                      <input
+                        *ngIf="columnSettingData.textWrap"
+                        class="e-edit-checkbox"
+                        type="checkbox"
+                        checked
+                        name="textWrap"
+                      />
+                      <input
+                        *ngIf="!columnSettingData.textWrap"
+                        class="e-edit-checkbox"
+                        type="checkbox"
+                        name="textWrap"
+                      />
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+      <div class="e-footer-content">
+        <button
+          type="button"
+          class="e-control e-btn e-lib e-primary e-flat"
+          (click)="saveSettings()"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="e-control e-btn e-lib e-flat"
+          (click)="hideDialog()"
+        >
+          Cancel
+        </button>
+      </div>
+    </ng-template>
+  </ejs-dialog>
+</div>

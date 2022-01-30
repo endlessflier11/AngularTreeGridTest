@@ -1,0 +1,213 @@
+html,
+body,
+#dialog-container {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+#container {
+    visibility: hidden;
+}
+
+#loader {
+    color: #008cff;
+    height: 40px;
+    left: 45%;
+    position: absolute;
+    top: 45%;
+    width: 30%;
+}
+
+
+.row {
+    padding: 10px 3px;
+}
+
+span.close-icon {
+    width: 24px;
+    height: 24px;
+    position: relative;
+    /* background-color: yellow; */
+    display: inline-block;
+}
+span.error-msg {
+    color: #66afe9;
+    display: inline-block;
+    position: relative;
+    top: -29px;
+    left: 32px;
+}
+.error-detail.col-lg-8 {
+    position: relative;
+    left: 45px;
+    margin: 0px 0px 21px;
+}
+.e-icons.close-icon.col-lg-2:before {
+    content: '\e7e9';
+    font-size: 26px;
+    color:#d9534f;
+    position: relative;
+    left: -12px;
+}
+
+.e-dialog .e-footer-content {
+    background-color: #f8f8f8;
+}
+
+.e-dialog.e-control.e-popup, .e-dialog.e-control.e-popup .e-dlg-header-content {
+    background-color: #66afe9;
+}
+.e-dialog.e-control.e-popup {
+    padding:3px;
+}
+.e-dialog.e-control .e-dlg-header-content {
+    padding: 10px;
+}
+.e-dialog.e-control .e-footer-content {
+    padding: 8px 12px;
+}
+
+.e-dialog.e-control .e-dlg-content {
+    padding: 15px 0px 0px;
+}
+
+/* Custom css */
+.e-editedrow {
+    padding: 0 24px;
+}
+
+.e-table {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.e-row {
+    display: flex;
+    width: 100%;
+}
+
+.e-rowcell {
+    text-align: left;
+    width: 100%;
+}
+
+.e-edit-div {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: left;
+    box-sizing: border-box;
+    border-radius: 0;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    margin-top: 16px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+    font-family: "Roboto", "Segoe UI", "GeezaPro", "DejaVu Serif", "sans-serif", "-apple-system", "BlinkMacSystemFont";
+    font-size: 13px;
+    font-weight: 400;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.87);
+    display: inline-block;
+}
+
+.e-edit-textbox {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-radius: 0;
+    border: 0 solid;
+    border-width: 0 0 1px 0;
+    display: block;
+    font: inherit;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 0 4px;
+    padding-left: 0;
+    text-indent: 0;
+    min-height: 22px;
+    border-color: rgba(0, 0, 0, 0.42);
+    background: none;
+    color: inherit;
+    border-bottom-color: rgba(0, 0, 0, 0.42);
+    content: '';
+    box-sizing: content-box;
+    box-shadow: none;
+    text-align: Right;
+}
+
+.e-edit-label {
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    border-spacing: 0;
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.4;
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    left: 0;
+    overflow: hidden;
+    padding-left: 0;
+    pointer-events: none;
+    position: absolute;
+    text-overflow: ellipsis;
+    transform-origin: left top;
+    transition: 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+    white-space: nowrap;
+    width: 100%;
+    content: '';
+    font-style: normal;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 13px;
+    top: -9px;
+    transform: translate3d(0, -6px, 0) scale(0.92);
+    user-select: text;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.e-select {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+    height: 30px;
+    margin: 4px 0;
+}
+
+.e-color-box {
+    width: 100%;
+    border: none;
+    height: 30px;
+    margin: 4px 0;
+}
+
+.e-checkbox-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4px;
+    margin-bottom: 12px;
+}
+
+.e-check-label {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.e-edit-checkbox {
+    margin: 0;
+}

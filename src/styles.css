@@ -1,0 +1,49 @@
+.e-treegrid .e-row {
+    height: 40px;
+    padding: 0 12px;
+}
+
+.e-check-icon {
+    font-family: "sb-new-icons";
+    width: 16px;
+    height: 16px;
+    color: black;
+    font-size: 8px;
+    margin-top: -20px;
+}
+
+.e-check-icon.checked::before {
+    content: '\ea52';
+}
+
+.e-check-icon.unchecked::before {
+    content: '\ea53';
+}
+
+/* .e-frozencontent.e-frozen-left-content {
+    min-height: 100% !important;
+    border-right-width: 1px !important;
+}
+
+.e-table {
+    min-height: 100% !important;
+}
+
+.e-movablecontent {
+    min-height: 100% !important;
+    flex: 1 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+} */
+
+.e-rowcell.e-selectionbackground.e-active {
+    background: #2382c3 !important;
+    color: #ffffff !important;
+}
+
+.e-headertext {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 23px;
+    color: #212529;
+}
